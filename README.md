@@ -71,32 +71,6 @@ InstaFlow_ELT_data/
 └── README.md                     # This file
 ```
 
-## Useful Commands
-
-### Start Airflow
-```bash
-docker-compose up -d
-```
-
-### Stop Airflow
-```bash
-docker-compose down
-```
-
-### View Logs
-```bash
-docker-compose logs -f
-```
-
-### Restart Services
-```bash
-docker-compose restart
-```
-
-### View Running Containers
-```bash
-docker-compose ps
-```
 
 ## Troubleshooting
 
@@ -172,4 +146,5 @@ If you encounter issues:
 git clone https://github.com/your-username/InstaFlow.git
 cd InstaFlow
 pip install -r requirements.txt
+
 
