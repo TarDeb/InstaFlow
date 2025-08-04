@@ -4,8 +4,8 @@ This project automatically posts images to Instagram using Apache Airflow runnin
 
 ## Prerequisites
 
-1. **Docker Desktop** - Download and install from [Docker Desktop](https://www.docker.com/products/docker-desktop)
-2. **Instagram Account** - You'll need Instagram credentials
+1. **Docker Desktop** - 
+2. **Instagram Account** - Instagram credentials
 
 ## Setup Instructions
 
@@ -28,7 +28,6 @@ Run the setup script:
 setup-airflow.bat
 ```
 
-This will:
 - Initialize the Airflow database
 - Create necessary directories
 - Set up the Docker environment
@@ -41,7 +40,7 @@ start-airflow.bat
 
 ### Step 5: Access Airflow Web UI
 
-Open your browser and go to: http://localhost:8080
+Open-> http://localhost:8080
 
 - **Username:** airflow
 - **Password:** airflow
@@ -102,26 +101,14 @@ docker-compose ps
 ## Troubleshooting
 
 ### 1. Docker Issues
-- Make sure Docker Desktop is running
-- Check if ports 8080 and 5432 are available
 
 ### 2. Permission Issues
-If you get permission errors, run:
 ```bash
 docker-compose down
 docker-compose up airflow-init
 docker-compose up -d
 ```
 
-### 3. Instagram Login Issues
-- Make sure your Instagram credentials are correct
-- Instagram may require 2FA - you might need an app password
-- Check if your account has any restrictions
-
-### 4. Image Issues
-- Ensure images are in JPG or PNG format
-- Check that the `image/` directory contains your photos
-- Verify file permissions
 
 ## Configuration
 
@@ -142,7 +129,6 @@ schedule_interval='0 9 * * 1'
 
 ### Change Image Caption
 
-Modify the caption in the `post_next_image()` function:
 
 ```python
 post_image_instagram(image_path, caption=f"Your custom caption: {image_to_post}")
@@ -161,7 +147,7 @@ If you encounter issues:
 2. Run `docker-compose logs -f` to see container logs
 3. Ensure all prerequisites are installed correctly
 
-Automate your Instagram: Automatically post an image from your folder to Instagram every week – powered by Python, Airflow & instagrapi.
+ Automatically post an image from your folder to Instagram every week – powered by Python, Airflow & instagrapi.
 
 ---
 
@@ -186,3 +172,4 @@ Automate your Instagram: Automatically post an image from your folder to Instagr
 git clone https://github.com/your-username/InstaFlow.git
 cd InstaFlow
 pip install -r requirements.txt
+
