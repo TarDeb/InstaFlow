@@ -1,4 +1,4 @@
-# InstaFlow ELT Data - Instagram Auto Poster
+# InstaFlow - Instagram Auto Poster
 
 This project automatically posts images to Instagram using Apache Airflow running in Docker containers.
 
@@ -6,48 +6,27 @@ This project automatically posts images to Instagram using Apache Airflow runnin
 
 1. **Docker Desktop** - 
 2. **Instagram Account** - Instagram credentials
-
 ## Setup Instructions
-
 ### Step 1: Configure Instagram Credentials
-
 Edit the `.env` file and add your Instagram credentials:
 ```
 IG_USER=your_instagram_username
 IG_PASS=your_instagram_password
 ```
-
 ### Step 2: Add Images
-
-Place your images (JPG, PNG) in the `image/` directory.
-
-### Step 3: Setup Airflow (First Time Only)
-
-Run the setup script:
-```bash
-setup-airflow.bat
-```
-
+Place  images (JPG, PNG) in the `image/` directory.
+### Step 3: Setup Airflow 
 - Initialize the Airflow database
 - Create necessary directories
 - Set up the Docker environment
-
-### Step 4: Start Airflow
-
-```bash
-start-airflow.bat
-```
-
-### Step 5: Access Airflow Web UI
-
+### Step 5: Access Airflow
 Open-> http://localhost:8080
-
 - **Username:** airflow
 - **Password:** airflow
 
-### Step 6: Enable Your DAG
+### Step 6: Enable DAG
 
-1. In the Airflow web UI, find the DAG named `test_instagram_post_every_5_minutes`
+1. In the Airflow web UI, find the DAG named
 2. Click the toggle switch to enable it
 3. The DAG will start posting images every 5 minutes
 
@@ -70,81 +49,12 @@ InstaFlow_ELT_data/
 ├── docker-compose.yml           # Docker configuration
 └── README.md                     # This file
 ```
-
-
-## Troubleshooting
-
-### 1. Docker Issues
-
-### 2. Permission Issues
-```bash
-docker-compose down
-docker-compose up airflow-init
-docker-compose up -d
-```
-
-
-## Configuration
-
-### Change Posting Schedule
-
-Edit `dags/weekly_post_dag.py` and modify the `schedule_interval`:
-
-```python
-# Post every hour
-schedule_interval='0 * * * *'
-
-# Post daily at 9 AM
-schedule_interval='0 9 * * *'
-
-# Post weekly on Mondays at 9 AM
-schedule_interval='0 9 * * 1'
-```
-
-### Change Image Caption
-
-
-```python
-post_image_instagram(image_path, caption=f"Your custom caption: {image_to_post}")
-```
-
-## Security Notes
-
-- Never commit your `.env` file with real credentials
-- Consider using Instagram app passwords instead of your main password
-- Keep your Docker containers updated
-
-## Support
-
-If you encounter issues:
-1. Check the Airflow logs in the web UI
-2. Run `docker-compose logs -f` to see container logs
-3. Ensure all prerequisites are installed correctly
-
- Automatically post an image from your folder to Instagram every week – powered by Python, Airflow & instagrapi.
-
----
-
 ## Features
-
 - Automatically selects the next image from a folder
 - Schedules weekly posting
 - Uses Apache Airflow for workflow automation
 - Secure Instagram login via environment variables or Airflow Connections
 - Easily extendable (e.g., for other social media platforms)
 
-## Requirements
-
-- Python 3.8+
-- [instagrapi](https://github.com/adw0rd/instagrapi)
-- Apache Airflow
-- An Instagram account (beware of Meta’s automation policies!)
-
-## Installation
-
-```bash
-git clone https://github.com/your-username/InstaFlow.git
-cd InstaFlow
-pip install -r requirements.txt
 
 
